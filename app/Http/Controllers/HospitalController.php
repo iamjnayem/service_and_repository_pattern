@@ -2,13 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\TestService;
-use Illuminate\Http\Request;
+use App\Interfaces\HospitalRepositoryInterface;
 
 class HospitalController extends Controller
 {
 
-   public function test(TestService $testService){
-    return $testService->test();
-   }
+    private $hosptialRepository;
+
+    public function __construct(HospitalRepositoryInterface $hospitalRepositoryInterface)
+    {
+        $this->hosptialRepository = $hospitalRepositoryInterface;
+    }
+
+
+    public function activeDoctors()
+    {
+        return $this->hosptialRepository->getWorkingDoctors();
+    }
 }

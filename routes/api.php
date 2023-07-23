@@ -21,5 +21,5 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
-// Route::get('/doctors', [HospitalController::class, 'activeDoctors']);
-Route::get('/test', [HospitalController::class, 'test']);
+Route::get('/doctors', [HospitalController::class, 'activeDoctors']);
+// Route::get('/test', [HospitalController::class, 'test']);
